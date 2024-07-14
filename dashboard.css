@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: #d6d6d6;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.form-section, .chart-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    margin-top: 0;
+}
+
+.form-section label {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-section input, .form-section select, .form-section button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-section button {
+    background-color: #FEB415;
+    color: #080710;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.chart-section {
+    height: 400px;
+}

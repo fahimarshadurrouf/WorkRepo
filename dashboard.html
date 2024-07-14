@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            drawVisitsChart();
+            drawRevenueChart();
+            drawOpportunityChart();
+        }
+
+        function drawVisitsChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Visits'],
+                ['Jan', 100],
+                ['Feb', 120],
+                ['Mar', 140],
+                // Add more data points here
+            ]);
+
+            var options = {
+                title: 'Visits',
+                pieHole: 0.4,
+                colors: ['#FEB415', '#feee15', '#000000'],
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('visits_chart'));
+            chart.draw(data, options);
+        }
+
+        function drawRevenueChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Revenue'],
+                ['Jan', 1000],
+                ['Feb', 1170],
+                ['Mar', 660],
+                // Add more data points here
+            ]);
+
+            var options = {
+                title: 'Revenue from Target',
+                colors: ['#FEB415', '#feee15', '#000000'],
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('revenue_chart'));
+            chart.draw(data, options);
+        }
+
+        function drawOpportunityChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Status', 'Count'],
+                ['Qualified', 10],
+                ['Follow-Up', 20],
+                ['Demo', 30],
+                ['Negotiation', 40],
+                ['Won', 50],
+                ['Lost', 60],
+                ['Unqualified', 70],
+                // Add more data points here
+            ]);
+
+            var options = {
+                title: 'Opportunity of Target',
+                pieHole: 0.4,
+                colors: ['#FEB415', '#feee15', '#000000'],
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('opportunity_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome to your reports</h1>
+        </div>
+        <div class="dashboard-grid">
+            <div class="form-section">
+                <h2>Create Your Visit</h2>
+                <form id="visit-form">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" id="company-name" placeholder="Company Name">
+
+                    <label for="visit-time">Time of Visit</label>
+                    <input type="datetime-local" id="visit-time">
+
+                    <label for="exit-time">Exit Time of Visit</label>
+                    <input type="datetime-local" id="exit-time">
+
+                    <label for="opportunity-status">Opportunity Status</label>
+                    <select id="opportunity-status">
+                        <option value="Qualified">Qualified</option>
+                        <option value="Follow-Up">Follow-Up</option>
+                        <option value="Demo">Demo</option>
+                        <option value="Negotiation">Negotiation</option>
+                        <option value="Won">Won</option>
+                        <option value="Lost">Lost</option>
+                        <option value="Unqualified">Unqualified</option>
+                    </select>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="chart-section" id="visits_chart"></div>
+            <div class="chart-section" id="revenue_chart"></div>
+            <div class="chart-section" id="opportunity_chart"></div>
+        </div>
+    </div>
+</body>
+</html>
